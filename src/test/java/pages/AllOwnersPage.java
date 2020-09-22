@@ -17,4 +17,6 @@ public class AllOwnersPage extends BasePage {
         WaitForElement.waitUntilElementIsVisible(lastTableElement);
         return lastTableElement.getText();
     }
+
+
 }

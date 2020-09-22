@@ -1,6 +1,7 @@
 package tests;
 
 import components.TopMenuPage;
+import helpers.DataGenerator;
 import org.testng.annotations.Test;
 import pages.*;
 

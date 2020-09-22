@@ -11,11 +11,18 @@ public class TopMenuPage extends BasePage {
     @FindBy(css = "a[href*='owners/add']")
     private WebElement addNewOwnerButton;
 
+    @FindBy(css = "a[href*='petclinic/pettypes']")
+    private WebElement petTypesButton;
+
     public void clickOnOwnersTabInNavBar() {
         ownersTopMenuButton.click();
     }
 
     public void clickAddNewOwner() {
         addNewOwnerButton.click();
+    }
+
+    public void clickOnPetTypes() {
+        petTypesButton.click();
     }
 }
