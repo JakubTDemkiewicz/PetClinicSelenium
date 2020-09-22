@@ -4,6 +4,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import waits.WaitForElement;
 
+import java.util.List;
+
+import static helpers.Methods.*;
+
 public class OwnerDetailPage extends BasePage {
     @FindBy(css = "div > table:nth-child(2) tr:nth-child(1) td b")
     private WebElement fullNameText;
@@ -37,6 +41,9 @@ public class OwnerDetailPage extends BasePage {
 
     @FindBy(css = "dd:nth-child(6)")
     private WebElement petTypeText;
+
+    @FindBy(className = "btn-default")
+    private List<WebElement> buttons;
 
 
     public String getFullNameText() {
@@ -85,5 +92,22 @@ public class OwnerDetailPage extends BasePage {
     public void clickAddVisitButton() {
         WaitForElement.waitUntilElementIsClickable(addVisitButton);
         addVisitButton.click();
+    }
+
+    public void takeOwnersDetailsPageScreenshot() {
+        takeScreenShot(getClass().getName(), fullNameText);
+    }
+
+    public String getFontWeightForFullName() {
+        WaitForElement.waitUntilElementIsVisible(fullNameText);
+        return fullNameText.getCssValue("font-weight");
+    }
+
+    public List<String> getButtonsBorderBottomColor() {
+        return getBorderBottomColorOfElements(buttons);
+    }
+
+    public List<String> getButtonsBackgroundColor() {
+        return getBackgroundColorOfElements(buttons);
     }
 }

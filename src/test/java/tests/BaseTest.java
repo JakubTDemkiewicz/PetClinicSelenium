@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import java.util.concurrent.TimeUnit;
+import static navigation.ApplicationUrls.APPLICATION_URL;
 
 public class BaseTest {
     public WebDriver driver;
@@ -14,9 +14,8 @@ public class BaseTest {
     @BeforeClass
     public void beforeTest() {
         driver = DriverManager.getWebDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        DriverUtils.navigateToPage("http://petclinic.akademia.testowanie.pl/petclinic/");
+        DriverUtils.setInitialConfiguration();
+        DriverUtils.navigateToPage(APPLICATION_URL);
     }
 
     @AfterClass
